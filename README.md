@@ -1,9 +1,4 @@
 # sammScroll.Service
-scroll service with angular
-
-## Goal
-
-
 This is an angular service to trace scroll event to subscribe all elements which registered in it. With this service you have only on event listener and many elements waiting for browser to meet a special height.
 
 ## How it works
