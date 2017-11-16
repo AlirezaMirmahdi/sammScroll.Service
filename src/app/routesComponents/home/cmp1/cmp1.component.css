@@ -1,0 +1,15 @@
+.content {
+    width: 100%;
+    min-height: 500px;
+    margin-left: 0;
+    margin-right: 0;
+    direction: rtl;
+}
+.first-pipe {
+        background-color: #4298c3;
+        margin-right: 30px;
+        width: 10px;
+        height: 100%;
+        right: 50px;
+    }
+

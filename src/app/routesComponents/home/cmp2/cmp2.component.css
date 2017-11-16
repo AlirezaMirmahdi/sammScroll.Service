@@ -1,0 +1,49 @@
+.content{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.content .content-block{
+    height: 1000px;
+    direction: ltr;
+}
+
+.pipe{
+    background-color: #4298c3;
+}
+.horizontal-Pipe{
+    margin-right: 45px;
+    height: 10px;
+    margin-left: 35px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.vertical-Pipe{
+    margin-left: 20px;
+    width: 10px;
+    height: 100%;
+    float: left;
+/*    display: inline-block;*/
+}
+
+.linebar-block{
+    position: relative;
+/*    display: inline-block;*/
+    width: calc(100% - 50px);
+    padding: 10px;
+    float: right;
+}
+
+.linebar-item{
+    margin-top: 80px;
+}
+
+:host ::ng-deep .line-bg-color{
+    background-color: firebrick;
+}
+
+:host ::ng-deep .line-title-color{
+    color: firebrick;
+}

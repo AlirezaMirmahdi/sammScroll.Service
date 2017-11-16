@@ -1,0 +1,16 @@
+
+<div class="content row">
+    <div class="pipe horizontal-Pipe">
+        
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12 content-block">
+        <div class="pipe vertical-Pipe">
+            
+        </div>
+        <div class="linebar-block">
+            <div class="linebar-item" *ngFor="let line of LineBarList">
+                <samm-slider [config]="line"></samm-slider>
+            </div>
+        </div>
+    </div>
+</div>
