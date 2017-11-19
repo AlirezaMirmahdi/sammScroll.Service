@@ -1,12 +1,13 @@
 import { Component, Input, AfterViewInit, ElementRef } from '@angular/core';
 import { SammScrollService } from '../../services/sammScrollSrv/sammScroll.service'
+//import { SamAppearDirective } from '../samAppearDrv/samAppear.component';
 
 @Component({ 
-    selector: 'samm-slider',
+    selector: 'samm-percent-slider',
     template: `
         <div class="sam-progressbar-outline">
             <div class="sam-progressbar">
-                <div class="sam-progress-value-show" [style.width]="fconfig.currentValue + '%'" [ngClass]="fconfig.linebarColorClass">
+                <div class="sam-progress-value-show" [style.width]="fconfig.currentValue + '%'" [ngClass]="fconfig.linebarColorClass" [class.sam-progress-value-show-animation]="config.valueAnimation" >
                 </div>
                 <span [ngClass]="fconfig.linebarColorClass" class="sam-progress-value">{{fconfig.currentValue}}%</span>
             </div>
@@ -28,10 +29,12 @@ import { SammScrollService } from '../../services/sammScrollSrv/sammScroll.servi
         .sam-progress-value-show {
             height: 6px;
             width: 0;
+            float: left;
+        }
+        .sam-progress-value-show-animation{
             -webkit-transition: width 1s ease-in-out;
             -o-transition: width 1s ease-in-out;
             transition: width 1s ease-in-out;
-            float: left;
         }
         .sam-progress-value {
             position: absolute;
@@ -48,7 +51,7 @@ import { SammScrollService } from '../../services/sammScrollSrv/sammScroll.servi
     `]
 })
 
-export class SammSliderComponent implements AfterViewInit {
+export class SammPercentSliderComponent implements AfterViewInit {
     @Input() config: Object ;
     
     constructor(private scrollSrv : SammScrollService
@@ -62,11 +65,11 @@ export class SammSliderComponent implements AfterViewInit {
     
     private defaultConfig = {
         currentValue : 0,
-            linebarColorClass : '#1A2A41',
-            titleColorClass : 'black' ,
-            title : '',
-            value : 0,
-            valueAnimation : false
+        linebarColorClass : '#1A2A41',
+        titleColorClass : 'black' ,
+        title : '',
+        value : 0,
+        valueAnimation : false
     }
 
     fconfig : any;
@@ -74,15 +77,19 @@ export class SammSliderComponent implements AfterViewInit {
     
     ngOnInit() {
         this.fconfig = Object.assign({}, this.defaultConfig, this.config);
+        if(!this.fconfig.valueAnimation) this.fconfig.currentValue = this.fconfig.value;
     }
     
     loadOnData() {
         if(!this.fconfig.valueAnimation) return;
+        
         var pageOffset = (window.innerHeight / 20 )* 19;
         var listenY = this.elm.nativeElement.getBoundingClientRect().top + window.pageYOffset;
         if(listenY <= pageOffset) 
         {
-            setTimeout(() => this.fconfig.currentValue = this.fconfig.value, 100);
+            setTimeout(() => {
+                this.fconfig.currentValue = this.fconfig.value;
+            }, 100);
         } else {
              this.ScrollEventInfo = this.scrollSrv.setEventListener(listenY - pageOffset);
             this.ScrollEventInfo.eventObserver.subscribe(

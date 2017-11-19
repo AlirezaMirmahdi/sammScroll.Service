@@ -8,7 +8,7 @@ import { Cmp1Component, PipeNodeComponent } from './Cmp1/Cmp1.component';
 import { Cmp2Component } from './Cmp2/Cmp2.component';
 
 //components
-import { SammSliderComponent } from '../../directives/sammSliderDrv/sammSlider.component';
+import { SammPercentSliderComponent } from '../../directives/sammPercentSliderDrv/sammPercentSlider.component';
 
 //services
 import { SammScrollService } from '../../services/sammScrollSrv/sammScroll.service';
@@ -25,7 +25,7 @@ import { SammScrollService } from '../../services/sammScrollSrv/sammScroll.servi
         Cmp1Component,
         PipeNodeComponent,
         Cmp2Component,
-        SammSliderComponent
+        SammPercentSliderComponent
     ],
     entryComponents: [
     ],
