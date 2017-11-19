@@ -5,6 +5,9 @@ This is an angular service to trace scroll event to subscribe all elements which
 Every element which needs to be subscribed in a special height can be registered in this service with setEventListener() and gets an observable object and Id (needs to remove listener). When the user scrolls, this service checks the list of heights and for every height which is reached the number will be subscribed and removed from the list.
 
 ## What should you do
+The scroll.service file address is : 
+src/app/services/sammScrollSrv/sammScroll.service.ts
+
 Firstly, import the service in your module : 
 
 ```typescript
